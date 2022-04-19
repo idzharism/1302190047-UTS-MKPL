@@ -44,23 +44,33 @@ public class Employee extends User {
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 	 */
 	
+	private final int Grade1 = 3000000;
+	private final int Grade2 = 5000000;
+	private final int Grade3 = 7000000;
+
 	public void setMonthlySalary(int grade) {	
-		if (grade == 1) {
+		if (isgrade (gradePegawai)) {
 			monthlySalary = 3000000;
 			if (isForeigner) {
 				monthlySalary = (int) (3000000 * 1.5);
 			}
-		}else if (grade == 2) {
+		}else if (isgrade (gradePegawai)) {
 			monthlySalary = 5000000;
 			if (isForeigner) {
 				monthlySalary = (int) (3000000 * 1.5);
 			}
-		}else if (grade == 3) {
+		}else if (isgrade (gradePegawai)) {
 			monthlySalary = 7000000;
 			if (isForeigner) {
 				monthlySalary = (int) (3000000 * 1.5);
 			}
 		}
+	}
+
+	private static boolean isgrade(int gradePegawai){
+		int upperGrade = 3;
+		int lowerGrade = 1;
+		return (gradePegawai <= upperGrade) && (gradePegawai >= lowerGrade);
 	}
 	
 	public void setAnnualDeductible(int deductible) {	
